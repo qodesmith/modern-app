@@ -34,15 +34,11 @@ Here's the barebones setup we'll use for VSCode:
 
 We want to write modern, type-safe JavaScript. TypeScript is simply the way to go.
 
-There is a [JSX](https://www.typescriptlang.org/docs/handbook/jsx.html) section in the TypeScript docs which explains the various options of working with JSX. The React docs have a section on [Adding TypeScript to a Project](https://reactjs.org/docs/static-type-checking.html#adding-typescript-to-a-project) as well.
-
-- Step 1: [Download and install TypeScript](https://www.typescriptlang.org/download)
-
-```bash
-npm i -D typescript
-```
-
-- Step 2: Create a config file
+- The TypeScript docs provide a [comprehensive list of all configuration options](https://www.typescriptlang.org/tsconfig) and what they do. These are available as a [JSON schema](https://json.schemastore.org/tsconfig) as well.
+- There is a [JSX](https://www.typescriptlang.org/docs/handbook/jsx.html) section in the docs which explains the various options of working with JSX.
+- The docs also link to a [repo of base configurations](https://github.com/tsconfig/bases/) for different target environments, marketed as _Definitely Typed for TSConfigs_. It's recommended to start by extending one of these bases.
+- The React docs have a section on [Adding TypeScript to a Project](https://reactjs.org/docs/static-type-checking.html#adding-typescript-to-a-project) as well.
+- Webpack also has a [TypeScript guide](https://webpack.js.org/guides/typescript/).
 
 TODO:
 
@@ -56,3 +52,41 @@ TODO:
 ## eslint
 
 ## prettier
+
+## Setting The Project Up
+
+- Step 1: [Download and install TypeScript](https://www.typescriptlang.org/download).
+
+```bash
+npm i -D typescript
+```
+
+- Step 2: Create `tsconfig.js` - our TypeScript config file.
+
+Running `npx tsc --init` will create a `tsconfig.json` file populated with tons of comments concerning the configuration options available. We'll look to extend a provided [base](https://github.com/tsconfig/bases/) file instead.
+
+```bash
+# Create the config file.
+touch tsconfig.json
+
+# Install the recommended base config.
+npm i - D @tsconfig/recommended
+```
+
+- Step 3: Update the contets of `tsconfig.json` to be:
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES2015",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Recommended",
+  "extends": "@tsconfig/recommended/tsconfig.json"
+}
+```
