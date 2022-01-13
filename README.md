@@ -40,13 +40,20 @@ We want to write modern, type-safe JavaScript. TypeScript is simply the way to g
 - The React docs have a section on [Adding TypeScript to a Project](https://reactjs.org/docs/static-type-checking.html#adding-typescript-to-a-project) as well.
 - Webpack also has a [TypeScript guide](https://webpack.js.org/guides/typescript/).
 
+## Prettier
+
+[Prettier](https://prettier.io/) is an opinionated code formatter which we'll use to maintain consistent looking code.
+
+- Since we're going to use ESlint, we'll want the [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier#installation) package to make ESLint and Prettier play nice with eachother.
+- There is a [JSON schema](http://json.schemastore.org/prettierrc) showing all the Prettier options, as well as the [official docs](https://prettier.io/docs/en/options.html).
+
+## ESlint
+
+We want to catch bugs in our code so ESLint will help us do that. We'll leave all the formatting to Prettier.
+
 ## React
 
 ## Webpack
-
-## eslint
-
-## prettier
 
 ## Setting The Project Up
 
@@ -78,6 +85,43 @@ npm i - D @tsconfig/recommended
 }
 ```
 
+- Step 4: [Install Prettier](https://prettier.io/docs/en/install.html)
+
+```bash
+npm i -D prettier
+```
+
+- Step 5: Create `.prettierignore` (this should generally reflect your `.gitignore`):
+
+```bash
+node_modules
+dist
+```
+
+- Step 6: Create `.prettierrc.json`. We explicitly state settings even though some are the same as the defaults:
+
+```json
+{
+  "printWidth": 80,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": false,
+  "singleQuote": true,
+  "quoteProps": "as-needed",
+  "jsxSingleQuote": false,
+  "trailingComma": "es5",
+  "bracketSpacing": true,
+  "bracketSameLine": true,
+  "arrowParens": "avoid",
+  "requirePragma": false,
+  "insertPragma": false,
+  "proseWrap": "preserve",
+  "htmlWhitespaceSensitivity": "css",
+  "endOfLine": "lf",
+  "embeddedLanguageFormatting": "off"
+}
+```
+
 ---
 
 ---
@@ -90,3 +134,4 @@ npm i - D @tsconfig/recommended
 - [ ] If using SWC, do we need to enable the [jsx](https://www.typescriptlang.org/tsconfig#jsx) option with a value of `preserve`? This leaves the JSX untouched with the expectation that something later in the build process will handle it. An alternative is a value of `react-jsx` which emit's `.js` files with the JSX changed to `_jsx` calls.
 - [ ] Add a testing solution (and section in this doc) to the project. React Testing Library? Cypress? Jest?
 - [ ] Should we include a `.vscode` folder with a config in this project?
+- [ ] Do we need to use [overrides](https://prettier.io/docs/en/configuration.html#configuration-overrides) in Prettier for test files?
