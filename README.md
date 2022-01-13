@@ -110,7 +110,7 @@ dist
   "quoteProps": "as-needed",
   "jsxSingleQuote": false,
   "trailingComma": "es5",
-  "bracketSpacing": true,
+  "bracketSpacing": false,
   "bracketSameLine": true,
   "arrowParens": "avoid",
   "requirePragma": false,
