@@ -72,17 +72,9 @@ npm i - D @tsconfig/recommended
 
 ```json
 {
-  "compilerOptions": {
-    "target": "ES2015",
-    "module": "commonjs",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
-  },
-  "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "Recommended",
-  "extends": "@tsconfig/recommended/tsconfig.json"
+  "extends": "@tsconfig/recommended/tsconfig.json",
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }
 ```
 
