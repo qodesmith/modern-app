@@ -40,11 +40,6 @@ We want to write modern, type-safe JavaScript. TypeScript is simply the way to g
 - The React docs have a section on [Adding TypeScript to a Project](https://reactjs.org/docs/static-type-checking.html#adding-typescript-to-a-project) as well.
 - Webpack also has a [TypeScript guide](https://webpack.js.org/guides/typescript/).
 
-TODO:
-
-- [ ] Look into how [SWC](https://swc.rs/docs/getting-started) (an alternative to Babel) fits in to TypeScript and Webpack.
-- [ ] If using SWC, do we need to enable the [jsx](https://www.typescriptlang.org/tsconfig#jsx) option with a value of `preserve`? This leaves the JSX untouched with the expectation that something later in the build process will handle it. An alternative is a value of `react-jsx` which emit's `.js` files with the JSX changed to `_jsx` calls.
-
 ## React
 
 ## Webpack
@@ -90,3 +85,16 @@ npm i - D @tsconfig/recommended
   "extends": "@tsconfig/recommended/tsconfig.json"
 }
 ```
+
+---
+
+---
+
+---
+
+## TODO's
+
+- [ ] Look into how [SWC](https://swc.rs/docs/getting-started) (an alternative to Babel) fits in to TypeScript and Webpack.
+- [ ] If using SWC, do we need to enable the [jsx](https://www.typescriptlang.org/tsconfig#jsx) option with a value of `preserve`? This leaves the JSX untouched with the expectation that something later in the build process will handle it. An alternative is a value of `react-jsx` which emit's `.js` files with the JSX changed to `_jsx` calls.
+- [ ] Add a testing solution (and section in this doc) to the project. React Testing Library? Cypress? Jest?
+- [ ] Should we include a `.vscode` folder with a config in this project?
