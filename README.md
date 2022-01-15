@@ -47,11 +47,17 @@ We want to write modern, type-safe JavaScript. TypeScript is simply the way to g
 - Since we're going to use ESlint, we'll want the [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier#installation) package to make ESLint and Prettier play nice with eachother.
 - There is a [JSON schema](http://json.schemastore.org/prettierrc) showing all the Prettier options, as well as the [official docs](https://prettier.io/docs/en/options.html).
 
+## React
+
+Our front end library of choice!
+
+- For global state management, [Recoil.js](https://recoiljs.org/) is an excellent option.
+- [React Query](https://react-query.tanstack.com/) is popular as a data layer choice.
+- [React Router](https://reactrouter.com/) is a go-to solution for routing. Tanstack also offers [React Location](https://react-location.tanstack.com/), which looks promising.
+
 ## ESlint
 
 We want to catch bugs in our code so ESLint will help us do that. We'll leave all the formatting to Prettier.
-
-## React
 
 ## Webpack
 
