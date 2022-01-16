@@ -51,6 +51,8 @@ We want to write modern, type-safe JavaScript. TypeScript is simply the way to g
 
 Our front end library of choice!
 
+- The React docs have a section on [adding TypeScript support](https://reactjs.org/docs/static-type-checking.html#typescript).
+- The webpack docs have a section on [TypeScript + React](https://webpack.js.org/guides/typescript/) as well.
 - For global state management, [Recoil.js](https://recoiljs.org/) is an excellent option.
 - [React Query](https://react-query.tanstack.com/) is popular as a data layer choice.
 - [React Router](https://reactrouter.com/) is a go-to solution for routing. Tanstack also offers [React Location](https://react-location.tanstack.com/), which looks promising.
@@ -128,6 +130,18 @@ dist
 }
 ```
 
+- Step 7: Install React
+
+```bash
+npm i -D react react-dom
+```
+
+- Step 8: Install React associated types to work with TypeScript:
+
+```bash
+npm i -D @types/react-dom @types/react
+```
+
 ---
 
 ---
@@ -141,3 +155,4 @@ dist
 - [ ] Add a testing solution (and section in this doc) to the project. React Testing Library? Cypress? Jest?
 - [ ] Should we include a `.vscode` folder with a config in this project?
 - [ ] Do we need to use [overrides](https://prettier.io/docs/en/configuration.html#configuration-overrides) in Prettier for test files?
+- [ ] Check out the various TypeScript [plugins](https://www.typescriptlang.org/tsconfig#plugins). In particular, [typescript-styled-plugin](https://github.com/Microsoft/typescript-styled-plugin) and [typescript-eslint-language-service](https://github.com/Quramy/typescript-eslint-language-service).
