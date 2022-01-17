@@ -1,5 +1,27 @@
 {
-  "extends": "@tsconfig/recommended/tsconfig.json",
   "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "exactOptionalPropertyTypes": true,
+    "strictNullChecks": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "noUncheckedIndexedAccess": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "useUnknownInCatchVariables": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true, // We'll use SWC or Babel instead of TS to compile TS => JS.
+    "jsx": "react-jsx",
+    "target": "es5",
+    "baseUrl": "./src",
+    "lib": ["esnext", "dom"]
+  }
 }
