@@ -143,7 +143,7 @@ dist
 - Step 6: Install React and related type packages:
 
 ```bash
-npm i -D react react-dom @types/react-dom @types/react
+npm i -D react react-dom @types/react @types/react-dom
 ```
 
 ---
