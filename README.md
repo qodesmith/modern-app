@@ -36,7 +36,7 @@ We want to write modern, type-safe JavaScript. TypeScript is simply the way to g
 
 - The TypeScript docs provide a [comprehensive list of all configuration options](https://www.typescriptlang.org/tsconfig) and what they do. These are available as a [JSON schema](https://json.schemastore.org/tsconfig) as well.
 - There is a [JSX](https://www.typescriptlang.org/docs/handbook/jsx.html) section in the docs which explains the various options of working with JSX.
-- The docs also link to a [repo of base configurations](https://github.com/tsconfig/bases/) for different target environments, marketed as _Definitely Typed for TSConfigs_. It's recommended to start by extending one of these bases. One issue is that you can't extend more than one. For this project, we'll simply create a TS config that has everything we need.
+- The docs also link to a [repo of base configurations](https://github.com/tsconfig/bases/) for different target environments, marketed as _Definitely Typed for TSConfigs_. For this project, we'll simply create a TS config that has everything we need.
 - The React docs have a section on [Adding TypeScript to a Project](https://reactjs.org/docs/static-type-checking.html#adding-typescript-to-a-project) as well.
 - Webpack also has a [TypeScript guide](https://webpack.js.org/guides/typescript/).
 
