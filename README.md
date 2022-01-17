@@ -36,7 +36,7 @@ We want to write modern, type-safe JavaScript. TypeScript is simply the way to g
 
 - The TypeScript docs provide a [comprehensive list of all configuration options](https://www.typescriptlang.org/tsconfig) and what they do. These are available as a [JSON schema](https://json.schemastore.org/tsconfig) as well.
 - There is a [JSX](https://www.typescriptlang.org/docs/handbook/jsx.html) section in the docs which explains the various options of working with JSX.
-- The docs also link to a [repo of base configurations](https://github.com/tsconfig/bases/) for different target environments, marketed as _Definitely Typed for TSConfigs_. It's recommended to start by extending one of these bases.
+- The docs also link to a [repo of base configurations](https://github.com/tsconfig/bases/) for different target environments, marketed as _Definitely Typed for TSConfigs_. It's recommended to start by extending one of these bases. One issue is that you can't extend more than one. For this project, we'll simply create a TS config that has everything we need.
 - The React docs have a section on [Adding TypeScript to a Project](https://reactjs.org/docs/static-type-checking.html#adding-typescript-to-a-project) as well.
 - Webpack also has a [TypeScript guide](https://webpack.js.org/guides/typescript/).
 
@@ -52,10 +52,10 @@ We want to write modern, type-safe JavaScript. TypeScript is simply the way to g
 Our front end library of choice!
 
 - The React docs have a section on [adding TypeScript support](https://reactjs.org/docs/static-type-checking.html#typescript).
-- The webpack docs have a section on [TypeScript + React](https://webpack.js.org/guides/typescript/) as well.
 - For global state management, [Recoil.js](https://recoiljs.org/) is an excellent option.
 - [React Query](https://react-query.tanstack.com/) is popular as a data layer choice.
 - [React Router](https://reactrouter.com/) is a go-to solution for routing. Tanstack also offers [React Location](https://react-location.tanstack.com/), which looks promising.
+- [DefinintlyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) is a repository with _high quality_ TypeScript type definitions. They have packages for [React types](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react) and [ReactDOM types](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react-dom).
 
 ## ESlint
 
@@ -71,42 +71,52 @@ We want to catch bugs in our code so ESLint will help us do that. We'll leave al
 npm i -D typescript
 ```
 
-- Step 2: Create `tsconfig.js` - our TypeScript config file.
-
-Running `npx tsc --init` will create a `tsconfig.json` file populated with tons of comments concerning the configuration options available. We'll look to extend a provided [base](https://github.com/tsconfig/bases/) file instead.
-
-```bash
-# Create the config file.
-touch tsconfig.json
-
-# Install the recommended base config.
-npm i - D @tsconfig/recommended
-```
-
-- Step 3: Update the contets of `tsconfig.json` to be:
+- Step 2: Create [`tsconfig.js`](https://www.typescriptlang.org/tsconfig) with the following settings:
 
 ```json
 {
-  "extends": "@tsconfig/recommended/tsconfig.json",
   "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "exactOptionalPropertyTypes": true,
+    "strictNullChecks": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "noUncheckedIndexedAccess": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "useUnknownInCatchVariables": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true, // We'll use SWC or Babel instead of TS to compile TS => JS.
+    "jsx": "react-jsx",
+    "target": "es5",
+    "baseUrl": "./src",
+    "lib": ["esnext", "dom"]
+  }
 }
 ```
 
-- Step 4: [Install Prettier](https://prettier.io/docs/en/install.html)
+- Step 3: [Install Prettier](https://prettier.io/docs/en/install.html)
 
 ```bash
 npm i -D prettier
 ```
 
-- Step 5: Create `.prettierignore` (this should generally reflect your `.gitignore`):
+- Step 4: Create `.prettierignore` (this should generally reflect your `.gitignore`):
 
 ```bash
 node_modules
 dist
 ```
 
-- Step 6: Create `.prettierrc.json`. We explicitly state settings even though some are the same as the defaults:
+- Step 5: Create [`.prettierrc.json`](https://prettier.io/docs/en/options.html). We explicitly state settings even though some are the same as the defaults:
 
 ```json
 {
@@ -130,16 +140,10 @@ dist
 }
 ```
 
-- Step 7: Install React
+- Step 6: Install React and related type packages:
 
 ```bash
-npm i -D react react-dom
-```
-
-- Step 8: Install React associated types to work with TypeScript:
-
-```bash
-npm i -D @types/react-dom @types/react
+npm i -D react react-dom @types/react-dom @types/react
 ```
 
 ---
