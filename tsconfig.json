@@ -14,12 +14,11 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "newLine": "lf",
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "noEmit": true, // We'll try to use SWC or Babel instead of TS to compile TS => JS.
+    "noEmit": true, // We'll use SWC or Babel instead of TS to compile TS => JS.
     "jsx": "react-jsx",
     "target": "es5",
     "baseUrl": "./src",
