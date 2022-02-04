@@ -140,7 +140,21 @@ dist
 }
 ```
 
-- Step 6: Install React and related type packages:
+- Step 6: [Install eslint](https://eslint.org/docs/user-guide/getting-started)
+
+```bash
+npm i -D eslint
+```
+
+- Step 7: Create `.eslintrc.json`:
+
+```json
+{
+  "extends": "eslint:recommended"
+}
+```
+
+- Step X: Install React and related type packages:
 
 ```bash
 npm i -D react react-dom @types/react @types/react-dom
